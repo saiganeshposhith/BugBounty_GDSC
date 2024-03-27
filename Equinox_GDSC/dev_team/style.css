@@ -77,4 +77,10 @@
     .card {
       padding: 5em 1em;
     }
+    .column{
+      width: 25%;  /*Changed the width to 25% for a better view on larger screens */
+    }
+    .row{
+      justify-content: space-evenly;  /*Added 'justify-content: space-evenly' to achieve a better layout on large screens.*/
+    }
   }

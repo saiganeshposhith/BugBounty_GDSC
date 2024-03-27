@@ -1,2 +1,2 @@
 //Enter the API key recieved on your email here
-key = "your api key";
+var key = `bf4fd24e`;

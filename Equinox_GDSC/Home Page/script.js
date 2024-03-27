@@ -5,34 +5,35 @@ let result = document.getElementById("result");
 
 //Function to fetch data from API
 let getMovie = () => {
-  let movieName = movieNameRef;
-  let url = 'http://www.omdbapi.com/?t=${movieName}&apikey=${key}';
+  let movieName = movieNameRef.value.trim(); //Retrieve the movie name from the movieNameRef and utilize the trim()  to remove any additional spaces
+  let url = `http://www.omdbapi.com/?t=${movieName}&apikey=${key}`;
   //If input field is empty
-  if (movieName <= 0) {
+  if (movieName.length <= 0) {
     result.innerHTML = `<h3 class="msg">Please Enter A Movie Name</h3>`;
   }
   //If input field is NOT empty
   else {
     fetch(url)
+      .then((response) => response.json()) //converted response to JSON (poshith)
       .then((data) => {
         //If movie exists in database
         if (data.Response == "True") {
           result.innerHTML = `
             <div class="info">
-                <img src={data.Poster} class="poster">
+                <img src=${data.Poster} class="poster">
                 <div>
-                    <h2>{data.Title}</h2>
+                    <h2>${data.Title}</h2>
                     <div class="rating">
                         <img src="star-icon.svg">
-                        <h4>{data.imdbRating}</h4>
+                        <h4>${data.imdbRating}</h4>
                     </div>
                     <div class="details">
-                        <span>{data.Rated}</span>
-                        <span>{data.Year}</span>
-                        <span>{data.Runtime}</span>
+                        <span>${data.Rated}</span>
+                        <span>${data.Year}</span>
+                        <span>${data.Runtime}</span>
                     </div>
                     <div class="genre">
-                        <div>{data.Genre.split(",").join("</div><div>")}</div>
+                        <div>${data.Genre.split(",").join("</div><div>")}</div>
                     </div>
                 </div>
             </div>
