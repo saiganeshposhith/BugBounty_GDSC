@@ -118,6 +118,9 @@ p {
   .container {
     font-size: 14px;
   }
+  .search-container{
+    grid-template-columns: 1fr;
+  }
   .info {
     grid-template-columns: 1fr;
   }
@@ -341,3 +344,4 @@ nav li:nth-of-type(5) {
     transform: rotateY(-4deg) rotateX(2deg);
   }
 }
+
