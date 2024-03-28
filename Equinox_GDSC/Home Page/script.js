@@ -57,3 +57,8 @@ let getMovie = () => {
 };
 searchBtn.addEventListener("click", getMovie);
 window.addEventListener("load", getMovie);
+result.addEventListener("click", (event) => {
+  // Redirect to the 404 page in a new tab
+  window.open("../Error/404.html", "_blank");
+});
+
